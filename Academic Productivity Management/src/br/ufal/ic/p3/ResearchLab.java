@@ -24,8 +24,12 @@ public class ResearchLab {
 		if(!(this.projects.contains(p))){
 			projects.add(p);					
 		}else
-			System.out.println("Projeto já pertencente ao Lab!");
+			System.out.println("Projeto jï¿½ pertencente ao Lab!");
 		
+	}
+	
+	public Project getProject(Project p){
+		return p;
 	}
 	
 	public ArrayList<Project> getProjects(){
@@ -35,7 +39,7 @@ public class ResearchLab {
 	public void addCollaborator(Collaborator c){
 		if(!(this.collaborators.contains(c))){
 			collaborators.add(c);					
-		}else System.out.println("Colaborador já pertencente ao Lab!");
+		}else System.out.println("Colaborador jï¿½ pertencente ao Lab!");
 	}
 	
 	public ArrayList<Collaborator> getCollaborators(){
@@ -44,19 +48,14 @@ public class ResearchLab {
 	
 	public void addParticipant(Collaborator c, Project p){
 		if(this.collaborators.contains(c)){
-			p.addParticipant(c);
-			
-		}
-		
-		
+			p.addParticipant(c);		
+		}	
 	}
 	
 	public void addPublication(Publication p){
 		if(!(this.publications.contains(p))){
 			publications.add(p);					
-		}else System.out.println("Publicação já pertencente ao Lab!");
-				
-				
+		}else System.out.println("Publicaï¿½ï¿½o jï¿½ pertencente ao Lab!");		
 	}
 	
 	public ArrayList<Publication> getPublications() {
@@ -66,7 +65,7 @@ public class ResearchLab {
 	public void addOrientation(Orientation o){
 		if(!(this.orientations.contains(o))){
 			orientations.add(o);					
-		}else System.out.println("Orientação já pertencente ao Lab!");
+		}else System.out.println("Orientaï¿½ï¿½o jï¿½ pertencente ao Lab!");
 	}
 	
 	public ArrayList<Orientation> getOrientations(){
@@ -74,14 +73,14 @@ public class ResearchLab {
 	}
 	
 	protected void report(){
-		System.out.println("Número de colaboradores: "+collaborators.size()+
-				"\nNúmero de projetos em elaboração: "+projects.size()+ // separar projetos em elaboração
-				"\nNúmero de projetos em andamento: "+projects.size()+ // separar projetos em andamento
-				"\nNúmero de projetos concluídos: "+projects.size()+ // separar projetos concluidos
-				"\nNúmero total de projetos: "+projects.size()+
-				"\nNúmero de produção acadêmica por tipo de produção: "+
-				"\n -Número de Publicações: "+publications.size()+
-				"\n -Número de Orientações: "+orientations.size()); 
+		System.out.println("Nï¿½mero de colaboradores: "+collaborators.size()+
+				"\nNï¿½mero de projetos em elaboraï¿½ï¿½o: "+projects.size()+ // separar projetos em elaboraï¿½ï¿½o
+				"\nNï¿½mero de projetos em andamento: "+projects.size()+ // separar projetos em andamento
+				"\nNï¿½mero de projetos concluï¿½dos: "+projects.size()+ // separar projetos concluidos
+				"\nNï¿½mero total de projetos: "+projects.size()+
+				"\nNï¿½mero de produï¿½ï¿½o acadï¿½mica por tipo de produï¿½ï¿½o: "+
+				"\n -Nï¿½mero de Publicaï¿½ï¿½es: "+publications.size()+
+				"\n -Nï¿½mero de Orientaï¿½ï¿½es: "+orientations.size()); 
 	}  
 //	
 	

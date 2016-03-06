@@ -1,9 +1,12 @@
 package br.ufal.ic.p3.collaborator;
 
 public class GradStudent extends Student {
+	
+	private int nProjects;
 
 	public GradStudent(String name, String email) {
 		super(name, email);
+		nProjects=0;
 		// TODO Auto-generated constructor stub
 	}
 	
