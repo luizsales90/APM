@@ -21,10 +21,10 @@ public class Project {
 																		   //acadêmicas pra incluir tb as orienteações?
 																		   //Nao tem nada especificado sobre orientações relacionadas
 																		   //a projetos
-	private List<Orientation> orientations = new ArrayList<Orientation>();
+//	private List<Orientation> orientations = new ArrayList<Orientation>();
 	
 	
-	public Project(String title, String beginDate, String endDate, String fundingAgency, double financedValue, String objective, String description,ResearchLab lab){
+	public Project(String title, String beginDate, String endDate, String fundingAgency, double financedValue, String objective, String description, Collaborator participant){
 //		this.setId();
 		this.setTitle(title);
 		this.setBeginDate(beginDate);
@@ -33,12 +33,13 @@ public class Project {
 		this.setFinancedValue(financedValue);
 		this.setObjective(objective);
 		this.setDescription(description);
+		this.addParticipant(participant);
 //		this.setLab(lab);
 		
 		status = Status.EM_ELABORACAO;
 	}
 	
-	public Project(ResearchLab lab){
+	public Project(){
 //		this.setId();
 //		this.setLab(lab);
 		status = Status.EM_ELABORACAO;
@@ -50,7 +51,7 @@ public class Project {
 
 	public void setTitle(String title) {
 		this.title = title;
-		setStatus();
+//		setStatus();
 	}
 	
 	public String getBeginDate() {
@@ -59,7 +60,7 @@ public class Project {
 
 	public void setBeginDate(String beginDate) {
 		this.beginDate = beginDate;
-		setStatus();
+//		setStatus();
 	}
 
 	public String getEndDate() {
@@ -68,7 +69,7 @@ public class Project {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
-		setStatus();
+//		setStatus();
 	}
 	
 	public String getFundingAgency() {
@@ -77,7 +78,7 @@ public class Project {
 
 	public void setFundingAgency(String fundingAgency) {
 		this.fundingAgency = fundingAgency;
-		setStatus();
+//		setStatus();
 	}
 
 	public String getObjective() {
@@ -86,7 +87,7 @@ public class Project {
 
 	public void setObjective(String objective) {
 		this.objective = objective;
-		setStatus();
+//		setStatus();
 	}
 	
 	public String getDescription() {
@@ -95,7 +96,7 @@ public class Project {
 
 	public void setDescription(String description) {
 		this.description = description;
-		setStatus();
+//		setStatus();
 	}
 
 	public double getFinancedValue() {
@@ -104,7 +105,7 @@ public class Project {
 
 	public void setFinancedValue(double financedValue) {
 		this.financedValue = financedValue;
-		setStatus();
+//		setStatus();
 	}
 	
 //	public ResearchLab getLab() {
@@ -119,33 +120,51 @@ public class Project {
 //		setStatus();
 //	}
 	
-	public void setStatus()
-	{
-		if ((this.getFundingAgency() 	== null) 	&& // Mudar esses &&s pra ||s resolve esse if?
-			(this.getBeginDate() 		== null) 	&&
-			(this.getEndDate() 		== null)		&&
-			(this.getDescription() 		== null) 	&&
-			(this.getObjective() 		== null) 	&&
-			(this.getTitle() 			== null)	&&
-			(this.getFinancedValue()  == 0.0))
-		{
-			status = Status.EM_ELABORACAO;
-		}
-		else
-		{
-			status = Status.EM_ANDAMENTO;
-		}		
-	}
+//	public void setStatus()
+//	{
+//		if ((this.getFundingAgency() 	== null) 	&& // Mudar esses &&s pra ||s resolve esse if?
+//			(this.getBeginDate() 		== null) 	&&
+//			(this.getEndDate() 		== null)		&&
+//			(this.getDescription() 		== null) 	&&
+//			(this.getObjective() 		== null) 	&&
+//			(this.getTitle() 			== null)	&&
+//			(this.getFinancedValue()  == 0.0))
+//		{
+//			status = Status.EM_ELABORACAO;
+//		}
+//		else
+//		{
+//			status = Status.EM_ANDAMENTO;
+//		}		
+//	}
 	
-	public void setStatus(String status)
+	public void setStatus(String s)
 	{
-		
-		if(status.toString() == "Em andamento")
+		if(s == "Em andamento")
 		{
-			
-		}else if(status.toString() == "Concluído"){
+			if (	(this.getFundingAgency() 	== null) 	||
+					(this.getBeginDate() 		== null) 	||
+					(this.getEndDate() 		== null)		||
+					(this.getDescription() 		== null) 	||
+					(this.getObjective() 		== null) 	||
+					(this.getTitle() 			== null)	||
+					(this.getFinancedValue()  == 0.0)		||
+					(this.getParticipants().size() == 0)
+					){
+				System.out.println("Projeto ainda em elaboração, insira todos os dados.");
+			}else 
+				status = Status.EM_ANDAMENTO;			
+		}else if(s == "Concluído"){
+			if(this.status == Status.EM_ANDAMENTO){
+				if(this.getPublications().size() == 0){
+					System.out.println("Projeto não pode ser concluído pois não há publicação.");					
+				}else status = Status.CONCLUIDO;	
+			}else if(this.status == Status.EM_ELABORACAO){
+				System.out.println("Status não está Em Andamento para ser setado como Concluído");
+				}else System.out.println("Projeto já está concluído"); 
 			
 		}
+
 		
 		
 //		if (status == "Em elaboração")
@@ -205,16 +224,16 @@ public List<Publication> getPublications() {
 	return publications;
 }
 
-public void addOrientation(Orientation orientation){
-	orientations.add(orientation);
-//	if(!this.getLab().orientations.contains(orientation)){ // Aqui tá dando erro na hora de compilar!Pq?
-//		lab.addOrientation(orientation);					
-//	}
-}
-
-public List<Orientation> getOrientations() {
-	return orientations;
-}
+//public void addOrientation(Orientation orientation){
+//	orientations.add(orientation);
+////	if(!this.getLab().orientations.contains(orientation)){ // Aqui tá dando erro na hora de compilar!Pq?
+////		lab.addOrientation(orientation);					
+////	}
+//}
+//
+//public List<Orientation> getOrientations() {
+//	return orientations;
+//}
 
 	
 }
