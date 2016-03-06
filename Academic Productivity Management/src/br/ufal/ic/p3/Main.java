@@ -10,13 +10,13 @@ public class Main {
 
 	public static void main(String[] args) {
 	
-	ResearchLab lab = new ResearchLab();
-//	Project projeto1 = new Project("Qualidade de Software", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milhões" , "Melhorar qualidade do software",lab);
-	Student raphael = new GradStudent("Raphael", "RaphaEmo@msn.com.br"); 
-	Collaborator arnon = new GradStudent("Arnon", "Arnon.Gremio@hotmail.com");
-	Professor lage = new Professor("Lage", "lage@gmail.com");
+//	ResearchLab lab = new ResearchLab();
+//	Project projeto = new Project("Qualidade de Software", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milhï¿½es" , "Melhorar qualidade do software");
+//	Student raphael = new GradStudent("Raphael", "RaphaEmo@msn.com.br"); 
+//	Collaborator arnon = new GradStudent("Arnon", "Arnon.Gremio@hotmail.com");
+//	Professor lage = new Professor("Lage", "lage@gmail.com");
 //	Orientation o = new Orientation(lage,raphael,projeto1);
-	Publication p = new Publication("Artigo A","SIBDATA",2015, arnon);
+//	Publication p = new Publication("Artigo A","SIBDATA",2015, arnon);
 	
 //	Project projeto2 = new Project(lab);
 //	projeto2.setTitle("Projeto de Big data");
@@ -26,7 +26,7 @@ public class Main {
 //	projeto2.addOrientation(o);
 //	projeto2.addPublication(p);
 //	lab.addOrientation(o);
-	lab.addCollaborator(lage);
+//	lab.addCollaborator(lage);
 
 	
 //	lab.addProject(projeto1);
@@ -34,8 +34,18 @@ public class Main {
 		
 //	System.out.println(projeto1.getStatus());
 //	System.out.println(projeto2.getStatus());
-	lab.report();
+//	lab.report();
 	
+	ResearchLab lab = new ResearchLab();
+	Project projeto = new Project("Qualidade de Software", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milhï¿½es" , "Melhorar qualidade do software");
+	lab.addProject(projeto);
+	
+    Student raphael = new GradStudent("Raphael", "RaphaEmo@msn.com.br");
+ 	Professor lage = new Professor("Lage", "lage@gmail.com");
+ 	
+	lab.getProject(projeto).addParticipant(lage);
+	lab.getProject(projeto).addParticipant(raphael);
+	System.out.println(lab.getProject(projeto).getParticipants());
 	}
 
 }

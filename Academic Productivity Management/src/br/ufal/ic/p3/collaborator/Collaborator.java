@@ -10,12 +10,11 @@ import br.ufal.ic.p3.*;
 
 public abstract class Collaborator {
 	
-	protected String name;
-	protected String email;
+	private String name;
+	private String email;
 //	protected int id;
 	private List<Publication> publications = new ArrayList<Publication>();
 //	private List<Project> projects = new ArrayList<Project>();
-	public int numberOfProjects=0;
 	
 	public Collaborator(String name,String email){
 		this.name = name;

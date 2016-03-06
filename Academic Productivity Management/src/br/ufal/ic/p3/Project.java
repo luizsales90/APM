@@ -1,6 +1,7 @@
 package br.ufal.ic.p3;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import br.ufal.ic.p3.academicproduction.Publication;
@@ -14,18 +15,17 @@ public class Project {
 	private double financedValue;
 //	private ResearchLab lab;	
 //	private int id;
-	private Status status;// Só pode ser EM ANDAMENTO se tiver um professor participant.
-						  //Só pode ser CONCLUÍDO se tiver publicação
+	private Status status;// Sï¿½ pode ser EM ANDAMENTO se tiver um professor participant.
+						  //Sï¿½ pode ser CONCLUï¿½DO se tiver publicaï¿½ï¿½o
 	private List<Collaborator> participants = new ArrayList<Collaborator>();
-	private List<Publication> publications = new ArrayList<Publication>(); // eh de publicações msm ou teria que ser de produções 
-																		   //acadêmicas pra incluir tb as orienteações?
-																		   //Nao tem nada especificado sobre orientações relacionadas
+	private List<Publication> publications = new ArrayList<Publication>(); // eh de publicaï¿½ï¿½es msm ou teria que ser de produï¿½ï¿½es 
+																		   //acadï¿½micas pra incluir tb as orienteaï¿½ï¿½es?
+																		   //Nao tem nada especificado sobre orientaï¿½ï¿½es relacionadas
 																		   //a projetos
 //	private List<Orientation> orientations = new ArrayList<Orientation>();
 	
 	
-	public Project(String title, String beginDate, String endDate, String fundingAgency, double financedValue, String objective, String description, Collaborator participant){
-//		this.setId();
+	public Project(String title, String beginDate, String endDate, String fundingAgency, double financedValue, String objective, String description){
 		this.setTitle(title);
 		this.setBeginDate(beginDate);
 		this.setEndDate(endDate);
@@ -33,15 +33,10 @@ public class Project {
 		this.setFinancedValue(financedValue);
 		this.setObjective(objective);
 		this.setDescription(description);
-		this.addParticipant(participant);
-//		this.setLab(lab);
-		
 		status = Status.EM_ELABORACAO;
 	}
 	
 	public Project(){
-//		this.setId();
-//		this.setLab(lab);
 		status = Status.EM_ELABORACAO;
 	}
 		
@@ -51,7 +46,6 @@ public class Project {
 
 	public void setTitle(String title) {
 		this.title = title;
-//		setStatus();
 	}
 	
 	public String getBeginDate() {
@@ -60,7 +54,6 @@ public class Project {
 
 	public void setBeginDate(String beginDate) {
 		this.beginDate = beginDate;
-//		setStatus();
 	}
 
 	public String getEndDate() {
@@ -69,7 +62,6 @@ public class Project {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
-//		setStatus();
 	}
 	
 	public String getFundingAgency() {
@@ -78,7 +70,6 @@ public class Project {
 
 	public void setFundingAgency(String fundingAgency) {
 		this.fundingAgency = fundingAgency;
-//		setStatus();
 	}
 
 	public String getObjective() {
@@ -87,7 +78,6 @@ public class Project {
 
 	public void setObjective(String objective) {
 		this.objective = objective;
-//		setStatus();
 	}
 	
 	public String getDescription() {
@@ -96,7 +86,6 @@ public class Project {
 
 	public void setDescription(String description) {
 		this.description = description;
-//		setStatus();
 	}
 
 	public double getFinancedValue() {
@@ -105,38 +94,7 @@ public class Project {
 
 	public void setFinancedValue(double financedValue) {
 		this.financedValue = financedValue;
-//		setStatus();
 	}
-	
-//	public ResearchLab getLab() {
-//		return lab;
-//	}
-//	
-//	public void setLab(ResearchLab lab) {
-//		this.lab = lab;
-//		if(!lab.projects.contains(this)){
-//			lab.addProject(this);
-//		}
-//		setStatus();
-//	}
-	
-//	public void setStatus()
-//	{
-//		if ((this.getFundingAgency() 	== null) 	&& // Mudar esses &&s pra ||s resolve esse if?
-//			(this.getBeginDate() 		== null) 	&&
-//			(this.getEndDate() 		== null)		&&
-//			(this.getDescription() 		== null) 	&&
-//			(this.getObjective() 		== null) 	&&
-//			(this.getTitle() 			== null)	&&
-//			(this.getFinancedValue()  == 0.0))
-//		{
-//			status = Status.EM_ELABORACAO;
-//		}
-//		else
-//		{
-//			status = Status.EM_ANDAMENTO;
-//		}		
-//	}
 	
 	public void setStatus(String s)
 	{
@@ -144,35 +102,35 @@ public class Project {
 		{
 			if (	(this.getFundingAgency() 	== null) 	||
 					(this.getBeginDate() 		== null) 	||
-					(this.getEndDate() 		== null)		||
+					(this.getEndDate() 			== null)	||
 					(this.getDescription() 		== null) 	||
 					(this.getObjective() 		== null) 	||
 					(this.getTitle() 			== null)	||
-					(this.getFinancedValue()  == 0.0)		||
+					(this.getFinancedValue()  	== 0.0)		||
 					(this.getParticipants().size() == 0)
-					){
-				System.out.println("Projeto ainda em elaboração, insira todos os dados.");
+				){
+				System.out.println("Projeto ainda em elaboraï¿½ï¿½o, insira todos os dados.");
 			}else 
 				status = Status.EM_ANDAMENTO;			
-		}else if(s == "Concluído"){
+		}else if(s == "Concluï¿½do"){
 			if(this.status == Status.EM_ANDAMENTO){
 				if(this.getPublications().size() == 0){
-					System.out.println("Projeto não pode ser concluído pois não há publicação.");					
+					System.out.println("Projeto nï¿½o pode ser concluï¿½do pois nï¿½o hï¿½ publicaï¿½ï¿½o.");					
 				}else status = Status.CONCLUIDO;	
 			}else if(this.status == Status.EM_ELABORACAO){
-				System.out.println("Status não está Em Andamento para ser setado como Concluído");
-				}else System.out.println("Projeto já está concluído"); 
+				System.out.println("Status nï¿½o estï¿½ Em Andamento para ser setado como Concluï¿½do");
+				}else System.out.println("Projeto jï¿½ estï¿½ concluï¿½do"); 
 			
 		}
 
 		
 		
-//		if (status == "Em elaboração")
+//		if (status == "Em elaboraï¿½ï¿½o")
 //		{
 //			this.status = this.status.EM_ELABORACAO;	
 //		} else if (status == "Em andamento") {
 //			this.status = this.status.EM_ANDAMENTO;
-//		} else if (status == "Concluído") {
+//		} else if (status == "Concluï¿½do") {
 //			this.status = this.status.CONCLUIDO;
 //		}		
 	}
@@ -182,19 +140,37 @@ public class Project {
 		return status.toString();
 	}
 	
-	public void addParticipant(Collaborator participant){		
-		if(this.getStatus() == "Em elaboração" ){
-			if(participant instanceof GradStudent){
-				if(participant.numberOfProjects < 2){
+	public boolean checkProfessor()
+	{
+	      Iterator it = participants.iterator();
+	      while(it.hasNext()) {
+	         Object element = it.next();
+	         if (element instanceof Professor)
+	         {
+	        	 return true;
+	         }
+	      }
+	      return false;
+	}
+	
+	public void addParticipant(Collaborator participant)
+	{
+		if(status == status.EM_ELABORACAO)
+		{
+			if (participant instanceof Professor)
+			{
 				participants.add(participant);
-				participant.numberOfProjects++;
-//				participant.addProjects(this);
-				}else System.out.println("Estudante já possui número máximo de projetos!");
-			}else
-				participants.add(participant);
-				participant.numberOfProjects++;
-//				participant.addProjects(this);		
-		}else System.out.println("Projeto não está em elaboração, proibido alocar mais participantes");
+			} else {
+				if (checkProfessor())
+				{
+					participants.add(participant);
+				} else {
+					System.out.println("Insira um Professor primeiro!");
+				}
+			}
+		}else{
+			System.out.println("Projeto nï¿½o estï¿½ em elaboraï¿½ï¿½o, nao foi possivel alocar mais participantes");
+		}
 	}
 
 	public List<Collaborator> getParticipants() {
@@ -215,25 +191,11 @@ public class Project {
 public void addPublication(Publication publication){
 		publications.add(publication);
 		publication.setProject(this);
-//		if(!this.getLab().publications.contains(publication)){ // Aqui nao testei, mas deve tá dando erro na hora de compilar tb!Pq?
-//			lab.addPublication(publication);					
-//		}
 	}
 	
 public List<Publication> getPublications() {
 	return publications;
 }
-
-//public void addOrientation(Orientation orientation){
-//	orientations.add(orientation);
-////	if(!this.getLab().orientations.contains(orientation)){ // Aqui tá dando erro na hora de compilar!Pq?
-////		lab.addOrientation(orientation);					
-////	}
-//}
-//
-//public List<Orientation> getOrientations() {
-//	return orientations;
-//}
 
 	
 }
