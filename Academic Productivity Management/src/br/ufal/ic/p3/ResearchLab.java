@@ -1,10 +1,12 @@
 package br.ufal.ic.p3;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import br.ufal.ic.p3.academicproduction.Orientation;
 import br.ufal.ic.p3.academicproduction.Publication;
 import br.ufal.ic.p3.collaborator.Collaborator;
+import br.ufal.ic.p3.collaborator.GradStudent;
 
 public class ResearchLab {
 	
@@ -12,13 +14,10 @@ public class ResearchLab {
 	protected ArrayList<Collaborator> collaborators = new ArrayList<Collaborator>();
 	protected ArrayList<Publication> publications = new ArrayList<Publication>();
 	protected ArrayList<Orientation> orientations = new ArrayList<Orientation>();	
-
-	//	public ResearchLab(){
-//		this.projects = new ArrayList<Project>();
-//		this.publications = new ArrayList<Publication>();
-//		this.orientations = new ArrayList<Orientation>();
-//		this.collaborators = new ArrayList<Collaborator>();
-//	}
+	
+	private int elabProjs=0;
+	private int andamentProjs=0;
+	private int conclProjs=0;
 	
 	public void addProject(Project p){
 		if(!(this.projects.contains(p))){
@@ -29,29 +28,28 @@ public class ResearchLab {
 	}
 	
 	public Project getProject(Project p){
-		return p;
+		return projects.get(projects.indexOf(p));
 	}
 	
 	public ArrayList<Project> getProjects(){
 		return projects;
 	}
-	
-	public void addCollaborator(Collaborator c){
-		if(!(this.collaborators.contains(c))){
-			collaborators.add(c);					
-		}else System.out.println("Colaborador j� pertencente ao Lab!");
-	}
-	
-	public ArrayList<Collaborator> getCollaborators(){
-		return collaborators;
-	}
-	
-	public Collaborator getCollaborator(Collaborator c){
-		return collaborators.get(collaborators.indexOf(c));
-	}
 
+	public void countProjectsByStatus(){
+		Iterator it = projects.iterator();
+	      while(it.hasNext()) {
+	         Object element = it.next();
+	         if ( ((Project) element).getStatus() == Status.EM_ELABORACAO.toString() ){
+	        	 elabProjs++;
+	         }else if(((Project) element).getStatus() == Status.EM_ANDAMENTO.toString() ){
+	        	 andamentProjs++;
+	         }else if(((Project) element).getStatus() == Status.CONCLUIDO.toString()){
+	        	 conclProjs++;
+	         }	         
+	      }		
+	}
 	
-	public void addParticipant(Collaborator c, Project p){
+	public void addCollaborator(Collaborator c, Project p){
 	    if(this.collaborators.contains(c)){
 	      p.addParticipant(c);  
 	    } else {
@@ -59,11 +57,14 @@ public class ResearchLab {
 	      p.addParticipant(c);
 	    }
 	  }
-//	public void addParticipant(Collaborator c, Project p){
-//		if(this.collaborators.contains(c)){
-//			p.addParticipant(c);		
-//		}	
-//	}
+	
+	public Collaborator getCollaborator(Collaborator c){
+		return collaborators.get(collaborators.indexOf(c));
+	}
+	
+	public ArrayList<Collaborator> getCollaborators(){
+		return collaborators;
+	}
 	
 	public void addPublication(Publication p){
 		if(!(this.publications.contains(p))){
@@ -86,21 +87,15 @@ public class ResearchLab {
 	}
 	
 	protected void report(){
+		this.countProjectsByStatus();
 		System.out.println("Numero de colaboradores: "+collaborators.size()+
-						   "\nNumero de projetos em elaboracao: "+projects.size()+ // separar projetos em elabora��o
-						   "\nNumero de projetos em andamento: "+projects.size()+ // separar projetos em andamento
-						   "\nNumero de projetos concluidos: "+projects.size()+ // separar projetos concluidos
+						   "\nNumero de projetos em elaboracao: "+elabProjs+ 
+						   "\nNumero de projetos em andamento: "+andamentProjs+ 
+						   "\nNumero de projetos concluidos: "+conclProjs+ 
 						   "\nNumero total de projetos: "+projects.size()+
 						   "\nNumero de producaoo academica por tipo de producao: "+
 						   "\n -Numero de Publicacoes: "+publications.size()+
 						   "\n -Numero de Orientacoes: "+orientations.size()); 
 	}  
-//	
-	
-
-//	}
-//		
-//	public void consulta(){
-//	}
 	
 }

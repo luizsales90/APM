@@ -9,7 +9,7 @@ public class Publication {
 	
 	private String title, conference;
 	private int year;
-	private Project project ;// Publicacao só pode ser associada a projeto EM ANDAMENTO -- OK! Implementada essa restrição
+	private Project project ;
 	private List<Collaborator> autores = new ArrayList<Collaborator>();
 	
 	

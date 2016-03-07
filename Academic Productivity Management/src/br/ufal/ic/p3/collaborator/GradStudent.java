@@ -18,17 +18,4 @@ public class GradStudent extends Student {
 		nProjects++;
 	}
 
-	
-	
-//	private String regimeCurso;
-//	
-//
-//	public String getRegimeCurso() {
-//		return regimeCurso;
-//	}
-//
-//	public void setRegimeCurso(String regimeCurso) {
-//		this.regimeCurso = regimeCurso;
-//	}
-
 }

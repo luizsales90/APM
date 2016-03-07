@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import br.ufal.ic.p3.academicproduction.*;
 import java.util.List;
 
-import br.ufal.ic.p3.IdGenerator;
-
 import br.ufal.ic.p3.*;
 
 public abstract class Collaborator {
 	
 	private String name;
 	private String email; 
-//	protected int id;
 	private List<Publication> publications = new ArrayList<Publication>();
 	private List<Project> projects = new ArrayList<Project>();
 	
@@ -24,21 +21,11 @@ public abstract class Collaborator {
 	public String getName() {
 		return name;
 	}
-//	public void setName(String name) {
-//		this.name = name;
-//	}
+	
 	public String getEmail() {
 		return email;
 	}
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//	public int getId() {
-//		return id;
-//	}
-//	public void setId() {		
-//		this.id = IdGenerator.getNextId();		
-//	}
+	
 	public List<Publication> getPublications() {
 		return publications;
 	}

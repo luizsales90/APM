@@ -7,14 +7,12 @@ public class Orientation {
 	private Professor advisor;
 	private Student student;
 	private Project project;
-//	private String tcc;
 	
 	public Orientation(Professor advisor,Student student,Project project){
 		this.advisor = advisor;
 		advisor.addOrientation(this);
 		this.student = student;
-		this.project = project;
-		
+		this.project = project;		
 		
 	}
 

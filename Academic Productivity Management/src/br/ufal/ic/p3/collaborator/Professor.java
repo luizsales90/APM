@@ -12,11 +12,6 @@ public class Professor extends Collaborator {
 		super(name, email);		
 		// TODO Auto-generated constructor stub
 	}
-	
-//	public Professor(String name, String email){
-//		this.name = name;
-//		this.email = email;		
-//	}
 
 	public List<Orientation> getOrientations() {
 		return orientations;

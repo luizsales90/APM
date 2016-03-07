@@ -53,12 +53,12 @@ public class Main {
 //	lab.getProject(projeto1).addParticipant(raphael);
 //	lab.getProject(projeto2).addParticipant(raphael);
 //	lab.getProject(projeto3).addParticipant(raphael);
- 	lab.addParticipant(lage, projeto1);
- 	lab.addParticipant(lage, projeto2);
- 	lab.addParticipant(lage, projeto3);
- 	lab.addParticipant(raphael, projeto1);
- 	lab.addParticipant(raphael, projeto2);
- 	lab.addParticipant(raphael, projeto3);
+ 	lab.addCollaborator(lage, projeto1);
+ 	lab.addCollaborator(lage, projeto2);
+ 	lab.addCollaborator(lage, projeto3);
+ 	lab.addCollaborator(raphael, projeto1);
+ 	lab.addCollaborator(raphael, projeto2);
+ 	lab.addCollaborator(raphael, projeto3);
 	Consultation.consultation(raphael);
 	Consultation.consultation(lage);
 	Consultation.consultation(projeto1);

@@ -6,15 +6,5 @@ public class MasterStudent extends Student{
 		super(name, email);
 		// TODO Auto-generated constructor stub
 	}
-	
-//	private String regimeCurso;
-//
-//	public String getRegimeCurso() {
-//		return regimeCurso;
-//	}
-//
-//	public void setRegimeCurso(String regimeCurso) {
-//		this.regimeCurso = regimeCurso;
-//	}
 
 }

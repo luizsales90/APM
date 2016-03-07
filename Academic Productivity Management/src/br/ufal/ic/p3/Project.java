@@ -13,11 +13,9 @@ public class Project {
 	
 	private String title, beginDate, endDate , fundingAgency, objective, description;
 	private double financedValue;
-	private Status status;
-						 
+	private Status status;						 
 	private List<Collaborator> participants = new ArrayList<Collaborator>();
-	private List<Publication> publications = new ArrayList<Publication>(); 
-//	private List<Orientation> orientations = new ArrayList<Orientation>();	
+	private List<Publication> publications = new ArrayList<Publication>(); 	
 	
 	public Project(String title, String beginDate, String endDate, String fundingAgency, double financedValue, String objective, String description){
 		this.setTitle(title);
@@ -116,18 +114,7 @@ public class Project {
 				System.out.println("Status n�o est� Em Andamento para ser setado como Conclu�do");
 				}else System.out.println("Projeto j� est� conclu�do"); 
 			
-		}
-
-		
-		
-//		if (status == "Em elabora��o")
-//		{
-//			this.status = this.status.EM_ELABORACAO;	
-//		} else if (status == "Em andamento") {
-//			this.status = this.status.EM_ANDAMENTO;
-//		} else if (status == "Conclu�do") {
-//			this.status = this.status.CONCLUIDO;
-//		}		
+		}	
 	}
 	
 	public String getStatus()
@@ -166,7 +153,7 @@ public class Project {
 	
 	public void addParticipant(Collaborator participant)
 	{
-		if(status == status.EM_ELABORACAO)
+		if(status == Status.EM_ELABORACAO)
 		{
 			if (participant instanceof Professor)
 			{
@@ -218,11 +205,5 @@ public void report(){
 	
 }
 
-//private String title, beginDate, endDate , fundingAgency, objective, description;
-//private double financedValue;
-//private Status status;
-//					 
-//private List<Collaborator> participants = new ArrayList<Collaborator>();
-//private List<Publication> publications = new ArrayList<Publication>();
 	
 }
