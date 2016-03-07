@@ -39,7 +39,7 @@ public class Main {
 	ResearchLab lab = new ResearchLab();
 	Project projeto1 = new Project("Qualidade de Software1", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
 	Project projeto2 = new Project("Qualidade de Software2", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
-	Project projeto3 = new Project("Qualidade de Software2", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
+	Project projeto3 = new Project("Qualidade de Software3", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
 	lab.addProject(projeto1);
 	lab.addProject(projeto2);
 	lab.addProject(projeto3);
@@ -53,6 +53,13 @@ public class Main {
 	lab.getProject(projeto1).addParticipant(raphael);
 	lab.getProject(projeto2).addParticipant(raphael);
 	lab.getProject(projeto3).addParticipant(raphael);
+	Consultation.consultation(raphael);
+	Consultation.consultation(lage);
+	Consultation.consultation(projeto1);
+	Consultation.consultation(projeto2);
+	Consultation.consultation(projeto3);
+	Consultation.consultation(lab);
+	
 	
 	}
 

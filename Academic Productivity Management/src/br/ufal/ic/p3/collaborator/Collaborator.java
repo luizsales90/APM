@@ -53,4 +53,16 @@ public abstract class Collaborator {
 		projects.add(project);
 	}
 
+	public String toString(){
+		return name;		
+	}
+	
+	public void report(){
+		System.out.println("Nome: "+this.getName()+
+				"\nEmail: "+this.getEmail()+
+				"\nLista de projetos: "+this.getProjects()+
+				"\nProducao Academica: "+this.getPublications()
+				);
+		
+	}
 }

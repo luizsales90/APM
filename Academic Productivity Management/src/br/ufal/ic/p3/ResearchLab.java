@@ -77,14 +77,14 @@ public class ResearchLab {
 	}
 	
 	protected void report(){
-		System.out.println("N�mero de colaboradores: "+collaborators.size()+
-				"\nN�mero de projetos em elabora��o: "+projects.size()+ // separar projetos em elabora��o
-				"\nN�mero de projetos em andamento: "+projects.size()+ // separar projetos em andamento
-				"\nN�mero de projetos conclu�dos: "+projects.size()+ // separar projetos concluidos
-				"\nN�mero total de projetos: "+projects.size()+
-				"\nN�mero de produ��o acad�mica por tipo de produ��o: "+
-				"\n -N�mero de Publica��es: "+publications.size()+
-				"\n -N�mero de Orienta��es: "+orientations.size()); 
+		System.out.println("Numero de colaboradores: "+collaborators.size()+
+						   "\nNumero de projetos em elaboracao: "+projects.size()+ // separar projetos em elabora��o
+						   "\nNumero de projetos em andamento: "+projects.size()+ // separar projetos em andamento
+						   "\nNumero de projetos concluidos: "+projects.size()+ // separar projetos concluidos
+						   "\nNumero total de projetos: "+projects.size()+
+						   "\nNumero de producaoo academica por tipo de producao: "+
+						   "\n -Numero de Publicacoes: "+publications.size()+
+						   "\n -Numero de Orientacoes: "+orientations.size()); 
 	}  
 //	
 	

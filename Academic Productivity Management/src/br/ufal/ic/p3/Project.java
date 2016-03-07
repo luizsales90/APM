@@ -13,17 +13,11 @@ public class Project {
 	
 	private String title, beginDate, endDate , fundingAgency, objective, description;
 	private double financedValue;
-//	private ResearchLab lab;	
-//	private int id;
-	private Status status;// S� pode ser EM ANDAMENTO se tiver um professor participant.
-						  //S� pode ser CONCLU�DO se tiver publica��o
+	private Status status;
+						 
 	private List<Collaborator> participants = new ArrayList<Collaborator>();
-	private List<Publication> publications = new ArrayList<Publication>(); // eh de publica��es msm ou teria que ser de produ��es 
-																		   //acad�micas pra incluir tb as orientea��es?
-																		   //Nao tem nada especificado sobre orienta��es relacionadas
-																		   //a projetos
-//	private List<Orientation> orientations = new ArrayList<Orientation>();
-	
+	private List<Publication> publications = new ArrayList<Publication>(); 
+//	private List<Orientation> orientations = new ArrayList<Orientation>();	
 	
 	public Project(String title, String beginDate, String endDate, String fundingAgency, double financedValue, String objective, String description){
 		this.setTitle(title);
@@ -178,6 +172,7 @@ public class Project {
 			{
 				participants.add(participant);
 				participant.addProject(this);
+				
 			} else {
 				if (checkProfessor())
 				{
@@ -196,25 +191,38 @@ public class Project {
 		return participants;
 	}
 	
-//	public int getId() {
-//		return id;
-//	}
-//	
-//	public void setId(/*int id*/) {
-//		
-//		this.id = IdGenerator.getNextId();
-//	//	setStatus();
-//	//	this.id = id;
-//	}	
-	
 public void addPublication(Publication publication){
 		publications.add(publication);
-		publication.setProject(this);
 	}
 	
 public List<Publication> getPublications() {
 	return publications;
 }
 
+public String toString(){
+	return title;
+}
+
+public void report(){
+	System.out.println("Titulo: "+this.getTitle()+
+			"\nData Inicio: "+this.getBeginDate()+
+			"\nData Final: "+this.getEndDate()+
+			"\nAgencia Financiadora: "+this.getFundingAgency()+
+			"\nValor Financiado: "+this.getFinancedValue()+
+			"\nObjetivo: "+this.getObjective()+
+			"\nDescricao: "+this.getDescription()+
+			"\nStatus: "+this.getStatus()+
+			"\nColaboradores: "+this.getParticipants()+			
+			"\nProducao Academica: "+this.getPublications()
+			);
+	
+}
+
+//private String title, beginDate, endDate , fundingAgency, objective, description;
+//private double financedValue;
+//private Status status;
+//					 
+//private List<Collaborator> participants = new ArrayList<Collaborator>();
+//private List<Publication> publications = new ArrayList<Publication>();
 	
 }
