@@ -21,6 +21,7 @@ public class Main {
     Student raphael = new GradStudent("Raphael", "RaphaEmo@msn.com.br");
  	Professor lage = new Professor("Lage", "lage@gmail.com");
  	Publication publi = new Publication("Artigo sobre Sistemas de Recomendacao", "SBIE", 2014);
+ 	Orientation o = new Orientation("TCC Sistemas Recomendacao",lage, raphael);
  	
  	
  	lab.addCollaborator(lage, projeto1);
@@ -33,6 +34,8 @@ public class Main {
  	projeto1.setStatus("Em andamento");
  	publi.setProject(projeto1);
  	lab.addCollaborator(raphael, projeto1);
+ 	publi.addAuthors(lage);
+ 	
  	
 	Consultation.consultation(raphael);
 	Consultation.consultation(lage);

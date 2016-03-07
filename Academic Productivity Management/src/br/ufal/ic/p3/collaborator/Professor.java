@@ -21,5 +21,13 @@ public class Professor extends Collaborator {
 		orientations.add(orientation);
 	
 	}
+	
+	public void report(){
+		System.out.println("Nome: "+this.getName()+
+				"\nEmail: "+this.getEmail()+
+				"\nLista de projetos: "+this.getProjects()+
+				"\nProducao Academica: "+this.getPublications()+this.getOrientations()
+				);
+	}
 
 }
