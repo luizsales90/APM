@@ -17,9 +17,6 @@ public class Publication {
 		this.title = title;
 		this.conference = conference;
 		this.year = year;
-//		this.addAuthors(author);
-////		autores.add(autor);
-////		autor.addPublication(this);
 	}
 	
 	public String toString(){

@@ -23,7 +23,7 @@ public class ResearchLab {
 		if(!(this.projects.contains(p))){
 			projects.add(p);					
 		}else
-			System.out.println("Projeto j� pertencente ao Lab!");
+			System.out.println("Projeto ja pertencente ao Lab!");
 		
 	}
 	
@@ -84,7 +84,7 @@ public class ResearchLab {
 	public void addOrientation(Orientation o){
 		if(!(this.orientations.contains(o))){
 			orientations.add(o);					
-		}else System.out.println("Orienta��o j� pertencente ao Lab!");
+		}else System.out.println("Orientacao ja pertencente ao Lab!");
 	}
 	
 	public ArrayList<Orientation> getOrientations(){
