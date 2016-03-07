@@ -99,8 +99,8 @@ public class ResearchLab {
 						   "\nNumero de projetos concluidos: "+conclProjs+ 
 						   "\nNumero total de projetos: "+projects.size()+
 						   "\nNumero de producoes academicas por tipo de producao: "+
-						   "\n -Numero de Publicacoes: "+publications.size()+
-						   "\n -Numero de Orientacoes: "+orientations.size()); 
+						   "\n -Publicacoes: "+publications.size()+
+						   "\n -Orientacoes: "+orientations.size()); 
 	}  
 	
 }
