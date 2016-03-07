@@ -101,18 +101,18 @@ public class Project {
 					(this.getFinancedValue()  	== 0.0)		||
 					(this.getParticipants().size() == 0)
 				){
-				System.out.println("Projeto ainda em elabora��o, insira todos os dados.");
+				System.out.println("Projeto ainda em elaboracao, insira todos os dados.");
 			}else if(checkGradStudent()){
-				System.out.println("Projeto nao pode ir para 'EM ANDAMENTO' pois Aluno de gradua��o possui numero maximo de projetos EM ANDAMENTO");				
+				System.out.println("Projeto nao pode ir para 'EM ANDAMENTO' pois Aluno de graduacao possui numero maximo de projetos EM ANDAMENTO");				
 			} else status = Status.EM_ANDAMENTO;			
-		}else if(s == "Conclu�do"){
+		}else if(s == "Concluido"){
 			if(this.status == Status.EM_ANDAMENTO){
 				if(this.getPublications().size() == 0){
-					System.out.println("Projeto n�o pode ser conclu�do pois n�o h� publica��o.");					
+					System.out.println("Projeto nao pode ser concluido pois nao ha publicacao.");					
 				}else status = Status.CONCLUIDO;	
 			}else if(this.status == Status.EM_ELABORACAO){
-				System.out.println("Status n�o est� Em Andamento para ser setado como Conclu�do");
-				}else System.out.println("Projeto j� est� conclu�do"); 
+				System.out.println("Status nao esta Em Andamento para ser setado como Concluido");
+				}else System.out.println("Projeto ja esta concluido"); 
 			
 		}	
 	}
@@ -132,7 +132,7 @@ public class Project {
 	        		 ((GradStudent) element).incNprojects();
 	        		 return false;	        		 
 	        	 }
-	         }	         
+	         }else return false;	         
 	      }
 	      return true;
 		
@@ -170,7 +170,7 @@ public class Project {
 				}
 			}
 		}else{
-			System.out.println("Projeto n�o est� em elabora��o, nao foi possivel alocar mais participantes");
+			System.out.println("Projeto nao esta em elaboracao, nao foi possivel alocar mais participantes");
 		}
 	}
 

@@ -66,10 +66,15 @@ public class ResearchLab {
 		return collaborators;
 	}
 	
-	public void addPublication(Publication p){
-		if(!(this.publications.contains(p))){
-			publications.add(p);					
-		}else System.out.println("Publica��o j� pertencente ao Lab!");		
+	public void addPublication(Collaborator c,Publication publi){
+		if(this.collaborators.contains(c)){
+			publi.addAuthors(c);
+			publications.add(publi);
+		}else {
+			collaborators.add(c);
+			publi.addAuthors(c);
+			publications.add(publi);
+		}		
 	}
 	
 	public ArrayList<Publication> getPublications() {
@@ -93,7 +98,7 @@ public class ResearchLab {
 						   "\nNumero de projetos em andamento: "+andamentProjs+ 
 						   "\nNumero de projetos concluidos: "+conclProjs+ 
 						   "\nNumero total de projetos: "+projects.size()+
-						   "\nNumero de producaoo academica por tipo de producao: "+
+						   "\nNumero de producoes academicas por tipo de producao: "+
 						   "\n -Numero de Publicacoes: "+publications.size()+
 						   "\n -Numero de Orientacoes: "+orientations.size()); 
 	}  

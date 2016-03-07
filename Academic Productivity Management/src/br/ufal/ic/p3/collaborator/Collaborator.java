@@ -29,8 +29,9 @@ public abstract class Collaborator {
 	public List<Publication> getPublications() {
 		return publications;
 	}
+	
 	public void addPublication(Publication publication) {		
-		publications.add(publication);
+		publications.add(publication);		
 	} 
 	
 	public List<Project> getProjects() {

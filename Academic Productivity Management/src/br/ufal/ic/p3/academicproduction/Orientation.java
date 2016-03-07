@@ -6,18 +6,12 @@ public class Orientation {
 	
 	private Professor advisor;
 	private Student student;
-	private Project project;
 	
-	public Orientation(Professor advisor,Student student,Project project){
+	public Orientation(Professor advisor,Student student){
 		this.advisor = advisor;
 		advisor.addOrientation(this);
 		this.student = student;
-		this.project = project;		
 		
-	}
-
-	public Project getProject() {
-		return project;
 	}
 
 	public Student getStudent() {

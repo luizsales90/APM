@@ -10,26 +10,31 @@ public class Publication {
 	private String title, conference;
 	private int year;
 	private Project project ;
-	private List<Collaborator> autores = new ArrayList<Collaborator>();
+	private List<Collaborator> authors = new ArrayList<Collaborator>();
 	
 	
-	public Publication(String title,String conference,int year,Collaborator autor ){
+	public Publication(String title,String conference,int year){
 		this.title = title;
 		this.conference = conference;
 		this.year = year;
-		autores.add(autor);
-		autor.addPublication(this);
+//		this.addAuthors(author);
+////		autores.add(autor);
+////		autor.addPublication(this);
 	}
 	
+	public String toString(){
+		return title;
+	}
 	
-	public void addAutores(Collaborator autor)
+	public void addAuthors(Collaborator author)
 	{
-		autores.add(autor);
-		autor.addPublication(this);
+		authors.add(author);
+		author.addPublication(this);
+		
 	}
 	
-	public List<Collaborator> getAutores(){
-		return autores;
+	public List<Collaborator> getAuthors(){
+		return authors;
 	}
 
 	public Project getProject() {
@@ -37,10 +42,10 @@ public class Publication {
 	}
 
 	public void setProject(Project p) {		
-		if(p.getStatus() == "EM ANDAMENTO"){
+		if(p.getStatus() == "Em andamento"){
 		this.project = p;
 		p.addPublication(this);
-		}else System.out.println("Projeto não está em andamento");
+		}else System.out.println("Publicacao nao pode ser associada ao projeto pois este nao esta em andamento.");
 	}
 
 	public String getTitle() {
