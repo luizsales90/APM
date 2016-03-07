@@ -14,7 +14,7 @@ public abstract class Collaborator {
 	private String email;
 //	protected int id;
 	private List<Publication> publications = new ArrayList<Publication>();
-//	private List<Project> projects = new ArrayList<Project>();
+	private List<Project> projects = new ArrayList<Project>();
 	
 	public Collaborator(String name,String email){
 		this.name = name;
@@ -46,11 +46,11 @@ public abstract class Collaborator {
 		publications.add(publication);
 	} 
 	
-//	public List<Project> getProjects() {
-//		return projects;
-//	}
-//	public void addProjects(Project project) {		
-//		projects.add(project);
-//	}
+	public List<Project> getProjects() {
+		return projects;
+	}
+	public void addProject(Project project) {		
+		projects.add(project);
+	}
 
 }

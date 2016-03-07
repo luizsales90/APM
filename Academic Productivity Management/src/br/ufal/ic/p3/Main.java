@@ -47,9 +47,13 @@ public class Main {
     Student raphael = new GradStudent("Raphael", "RaphaEmo@msn.com.br");
  	Professor lage = new Professor("Lage", "lage@gmail.com");
  	
-	lab.getProject(projeto).addParticipant(lage);
-	lab.getProject(projeto).addParticipant(raphael);
-	System.out.println(lab.getProject(projeto).getParticipants());
+	lab.getProject(projeto1).addParticipant(lage);
+	lab.getProject(projeto2).addParticipant(lage);
+	lab.getProject(projeto3).addParticipant(lage);
+	lab.getProject(projeto1).addParticipant(raphael);
+	lab.getProject(projeto2).addParticipant(raphael);
+	lab.getProject(projeto3).addParticipant(raphael);
+	
 	}
 
 }

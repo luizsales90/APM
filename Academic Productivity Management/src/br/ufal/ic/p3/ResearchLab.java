@@ -46,6 +46,10 @@ public class ResearchLab {
 		return collaborators;
 	}
 	
+	public Collaborator getCollaborator(Collaborator c){
+		return collaborators.get(collaborators.indexOf(c));
+	}
+	
 	public void addParticipant(Collaborator c, Project p){
 		if(this.collaborators.contains(c)){
 			p.addParticipant(c);		

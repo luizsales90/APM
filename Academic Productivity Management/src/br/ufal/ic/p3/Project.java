@@ -111,7 +111,7 @@ public class Project {
 				){
 				System.out.println("Projeto ainda em elaboraï¿½ï¿½o, insira todos os dados.");
 			}else if(checkGradStudent()){
-				System.out.println("Projeto nao pode ir para 'EM ANDAMENTO' pois Aluno de graduação possui numero maximo de projetos EM ANDAMENTO");				
+				System.out.println("Projeto nao pode ir para 'EM ANDAMENTO' pois Aluno de graduaï¿½ï¿½o possui numero maximo de projetos EM ANDAMENTO");				
 			} else status = Status.EM_ANDAMENTO;			
 		}else if(s == "Concluï¿½do"){
 			if(this.status == Status.EM_ANDAMENTO){
@@ -177,10 +177,12 @@ public class Project {
 			if (participant instanceof Professor)
 			{
 				participants.add(participant);
+				participant.addProject(this);
 			} else {
 				if (checkProfessor())
 				{
 					participants.add(participant);
+					participant.addProject(this);
 				} else {
 					System.out.println("Insira um Professor primeiro!");
 				}
