@@ -6,7 +6,8 @@ import java.util.List;
 import br.ufal.ic.p3.collaborator.*;
 
 public class Publication {
-	
+
+// Atributos que devem estar presentes em uma publicação
 	private String title, conference;
 	private int year;
 	private Project project ;
@@ -38,6 +39,7 @@ public class Publication {
 		return project;
 	}
 
+// Restrição de publicação a um projeto em andamento
 	public void setProject(Project p) {		
 		if(p.getStatus() == "Em andamento"){
 		this.project = p;

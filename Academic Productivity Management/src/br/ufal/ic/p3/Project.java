@@ -7,7 +7,6 @@ import java.util.List;
 import br.ufal.ic.p3.academicproduction.Publication;
 import br.ufal.ic.p3.collaborator.*;
 
-import br.ufal.ic.p3.academicproduction.*;
 
 public class Project {
 	
@@ -87,7 +86,8 @@ public class Project {
 	public void setFinancedValue(double financedValue) {
 		this.financedValue = financedValue;
 	}
-	
+
+// Restrições para que um projeto esteja "em andamento", "em elaboração" ou "concluído"	
 	public void setStatus(String s)
 	{
 		if(s == "Em andamento")
@@ -122,8 +122,9 @@ public class Project {
 		return status.toString();
 	}
 
+// Usando iterator para percorrer a lista Collaborator e verificar por professores e alunos	
 	public boolean checkGradStudent(){		
-		Iterator it = participants.iterator();
+		Iterator<Collaborator> it = participants.iterator();
 	      while(it.hasNext()) {
 	         Object element = it.next();
 	         if (element instanceof GradStudent)
@@ -140,7 +141,7 @@ public class Project {
 	
 	public boolean checkProfessor()
 	{
-	      Iterator it = participants.iterator();
+	      Iterator<Collaborator> it = participants.iterator();
 	      while(it.hasNext()) {
 	         Object element = it.next();
 	         if (element instanceof Professor)
@@ -150,7 +151,8 @@ public class Project {
 	      }
 	      return false;
 	}
-	
+
+//Restrição de professores como participantes em um projeto	
 	public void addParticipant(Collaborator participant)
 	{
 		if(status == Status.EM_ELABORACAO)
@@ -190,6 +192,7 @@ public String toString(){
 	return title;
 }
 
+//Informações do projeto
 public void report(){
 	System.out.println("Titulo: "+this.getTitle()+
 			"\nData Inicio: "+this.getBeginDate()+

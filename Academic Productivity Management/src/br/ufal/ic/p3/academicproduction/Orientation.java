@@ -1,13 +1,13 @@
 package br.ufal.ic.p3.academicproduction;
 
 import br.ufal.ic.p3.collaborator.*; 
-import br.ufal.ic.p3.*;
 public class Orientation {
 	
 	private Professor advisor;
 	private Student student;
 	private String title;
 	
+// Vinculando aluno e professor a uma orientação	
 	public Orientation(String title,Professor advisor,Student student){
 		this.title = title;
 		this.advisor = advisor;

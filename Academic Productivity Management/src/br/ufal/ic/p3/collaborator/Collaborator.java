@@ -6,6 +6,8 @@ import java.util.List;
 
 import br.ufal.ic.p3.*;
 
+//Foi utilizada classe abstrata já que nome e e-mail
+//são utilizados tanto para alunos quanto para professores e pesquisadores
 public abstract class Collaborator {
 	
 	private String name;
@@ -44,7 +46,10 @@ public abstract class Collaborator {
 	public String toString(){
 		return name;		
 	}
+
 	
+// Relatório com nome, email, projetos e produção acadêmica vinculados
+// a um colaborador(aluno ou professor)	
 	public void report(){
 		System.out.println("Nome: "+this.getName()+
 				"\nEmail: "+this.getEmail()+

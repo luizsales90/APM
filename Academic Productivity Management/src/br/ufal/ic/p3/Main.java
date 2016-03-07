@@ -1,7 +1,5 @@
 	package br.ufal.ic.p3;
 
-import java.util.List;
-
 import br.ufal.ic.p3.collaborator.*;
 
 import br.ufal.ic.p3.academicproduction.*;
@@ -9,7 +7,8 @@ import br.ufal.ic.p3.academicproduction.*;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
+// Criando dados testes		
 	ResearchLab lab = new ResearchLab();
 	Project projeto1 = new Project("Qualidade de Software1", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milhoes" , "Melhorar qualidade do software");
 	Project projeto2 = new Project("Qualidade de Software2", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milhoes" , "Melhorar qualidade do software");
@@ -23,7 +22,8 @@ public class Main {
  	Publication publi = new Publication("Artigo sobre Sistemas de Recomendacao", "SBIE", 2014);
  	Orientation o = new Orientation("TCC Sistemas Recomendacao",lage, raphael);
  	
- 	
+ 
+ // Vinculando colabores e projetos ao laboratório de pesquisa lab
  	lab.addCollaborator(lage, projeto1);
  	lab.addCollaborator(lage, projeto2);
  	lab.addCollaborator(lage, projeto3);
@@ -36,12 +36,14 @@ public class Main {
  	lab.addCollaborator(raphael, projeto1);
  	publi.addAuthors(lage);
  	
- 	
+// Retornando todos os dados associados aos objetos indicados  	
 	Consultation.consultation(raphael);
 	Consultation.consultation(lage);
 	Consultation.consultation(projeto1);
 	Consultation.consultation(projeto2);
 	Consultation.consultation(projeto3);
+
+// Relatório de produção acadêmica do laboratório
 	Consultation.consultation(lab);
 	
 	

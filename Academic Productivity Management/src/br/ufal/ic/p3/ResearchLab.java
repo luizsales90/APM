@@ -6,10 +6,10 @@ import java.util.Iterator;
 import br.ufal.ic.p3.academicproduction.Orientation;
 import br.ufal.ic.p3.academicproduction.Publication;
 import br.ufal.ic.p3.collaborator.Collaborator;
-import br.ufal.ic.p3.collaborator.GradStudent;
 
 public class ResearchLab {
-	
+
+// Projetos, colaborações, publicações e orientações associadas a um laboratório
 	protected ArrayList<Project> projects = new ArrayList<Project>();
 	protected ArrayList<Collaborator> collaborators = new ArrayList<Collaborator>();
 	protected ArrayList<Publication> publications = new ArrayList<Publication>();
@@ -19,6 +19,7 @@ public class ResearchLab {
 	private int andamentProjs=0;
 	private int conclProjs=0;
 	
+// Adição de um projeto no laboratório e verificação se o mesmo já existe no laboratório
 	public void addProject(Project p){
 		if(!(this.projects.contains(p))){
 			projects.add(p);					
@@ -35,8 +36,10 @@ public class ResearchLab {
 		return projects;
 	}
 
+// Usando iterator para percorrer a lista Project e calcular o número de 
+// projetos em diferentes status	
 	public void countProjectsByStatus(){
-		Iterator it = projects.iterator();
+		Iterator<Project> it = projects.iterator();
 	      while(it.hasNext()) {
 	         Object element = it.next();
 	         if ( ((Project) element).getStatus() == Status.EM_ELABORACAO.toString() ){
@@ -48,7 +51,8 @@ public class ResearchLab {
 	         }	         
 	      }		
 	}
-	
+
+// Adicionando colaboradores em um projeto
 	public void addCollaborator(Collaborator c, Project p){
 	    if(this.collaborators.contains(c)){
 	      p.addParticipant(c);  
@@ -65,7 +69,8 @@ public class ResearchLab {
 	public ArrayList<Collaborator> getCollaborators(){
 		return collaborators;
 	}
-	
+
+// Vinculando colaboradores e publicações
 	public void addPublication(Collaborator c,Publication publi){
 		if(this.collaborators.contains(c)){
 			publi.addAuthors(c);
@@ -90,7 +95,8 @@ public class ResearchLab {
 	public ArrayList<Orientation> getOrientations(){
 		return orientations;
 	}
-	
+
+// Relatório contendo todas as informações de um laboratório de pesquisa	
 	protected void report(){
 		this.countProjectsByStatus();
 		System.out.println("Numero de colaboradores: "+collaborators.size()+
