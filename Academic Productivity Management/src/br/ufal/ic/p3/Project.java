@@ -110,8 +110,9 @@ public class Project {
 					(this.getParticipants().size() == 0)
 				){
 				System.out.println("Projeto ainda em elaboraï¿½ï¿½o, insira todos os dados.");
-			}else 
-				status = Status.EM_ANDAMENTO;			
+			}else if(checkGradStudent()){
+				System.out.println("Projeto nao pode ir para 'EM ANDAMENTO' pois Aluno de graduação possui numero maximo de projetos EM ANDAMENTO");				
+			} else status = Status.EM_ANDAMENTO;			
 		}else if(s == "Concluï¿½do"){
 			if(this.status == Status.EM_ANDAMENTO){
 				if(this.getPublications().size() == 0){
@@ -138,6 +139,22 @@ public class Project {
 	public String getStatus()
 	{
 		return status.toString();
+	}
+
+	public boolean checkGradStudent(){		
+		Iterator it = participants.iterator();
+	      while(it.hasNext()) {
+	         Object element = it.next();
+	         if (element instanceof GradStudent)
+	         {
+	        	 if(((GradStudent) element).getnProjects()<2){
+	        		 ((GradStudent) element).incNprojects();
+	        		 return false;	        		 
+	        	 }
+	         }	         
+	      }
+	      return true;
+		
 	}
 	
 	public boolean checkProfessor()

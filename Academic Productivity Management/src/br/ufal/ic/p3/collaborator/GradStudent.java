@@ -6,9 +6,19 @@ public class GradStudent extends Student {
 
 	public GradStudent(String name, String email) {
 		super(name, email);
-		nProjects=0;
+		nProjects = 0;
 		// TODO Auto-generated constructor stub
 	}
+
+	public int getnProjects() {
+		return nProjects;
+	}
+
+	public void incNprojects() {
+		nProjects++;
+	}
+
+	
 	
 //	private String regimeCurso;
 //	

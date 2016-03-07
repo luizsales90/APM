@@ -37,8 +37,12 @@ public class Main {
 //	lab.report();
 	
 	ResearchLab lab = new ResearchLab();
-	Project projeto = new Project("Qualidade de Software", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
-	lab.addProject(projeto);
+	Project projeto1 = new Project("Qualidade de Software1", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
+	Project projeto2 = new Project("Qualidade de Software2", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
+	Project projeto3 = new Project("Qualidade de Software2", "10/07/2014", "15/04/2015" ,"Petrobras",20000.0 ,"Ganhar milh�es" , "Melhorar qualidade do software");
+	lab.addProject(projeto1);
+	lab.addProject(projeto2);
+	lab.addProject(projeto3);
 	
     Student raphael = new GradStudent("Raphael", "RaphaEmo@msn.com.br");
  	Professor lage = new Professor("Lage", "lage@gmail.com");
