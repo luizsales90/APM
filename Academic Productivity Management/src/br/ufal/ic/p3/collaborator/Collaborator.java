@@ -11,7 +11,7 @@ import br.ufal.ic.p3.*;
 public abstract class Collaborator {
 	
 	private String name;
-	private String email;
+	private String email; 
 //	protected int id;
 	private List<Publication> publications = new ArrayList<Publication>();
 	private List<Project> projects = new ArrayList<Project>();
